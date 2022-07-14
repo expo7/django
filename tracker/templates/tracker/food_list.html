@@ -1,0 +1,23 @@
+{% extends "tracker/base.html" %}
+{% block body %}
+<div class="row">
+{% for object in object_list%}
+
+<div class="card m-2 bg-secondary" id="foodCard">
+  <div class="card-body">
+          <image src="{{object.image.url}}" class="card-img-top" ></image>
+    <h3 class="card-title text-capitalize">{{ object.name }}</h3>
+    <h5 class="card-subtitle">Benifits:</h5>
+    <ul>
+      <li>
+        <p>{{object.text1|truncatewords:20}}</p>
+      </li>
+      
+
+    </ul>
+    <a href="{% url 'food-detail' object.slug %}" class="btn btn-primary">Learn more</a>
+  </div>
+</div>
+{% endfor %}
+</div>
+{% endblock body %}

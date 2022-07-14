@@ -1,0 +1,114 @@
+{% extends "tracker/base.html" %} {% block body %}
+
+<div class="card m-2 bg-secondary" style="">
+  <div class="card-body">
+    <h3 class="card-title text-capitalize">{{ article.title }}</h3>
+    <p class="card-text">{{article.subtitle}}</p>
+    <h5 class="card-subtitle text-muted text-capitalize">
+      {{article.subtitle2}}
+    </h5>
+         
+    <ul>
+      <li>
+        <p>{{article.text9}}</p>
+      </li>
+      <li>
+        <p>{{article.text10}}</p>
+      </li>
+      <li>
+        <p>{{article.text11}}</p>
+      </li>
+    </ul>
+    <h5 class="card-subtitle text-muted text-capitalize">
+      {{article.subtitle3}}
+    </h5>
+    <p>{{article.text12}}</p>
+
+<div id="autoChart" class="">
+
+</div>
+    <p>{{article.text13}}</p>
+  </div>
+</div>
+<div class="row">
+  {% for p in Products %}
+  <div class="card m-2" style="width: 18rem">
+    <div class="card-body">
+      
+      <h5 class="card-title">{{ p.name }}</h5>
+        <img class="card-img-top" src="{{p.image.url}}" alt="" />
+
+
+      <p class="card-text">{{p.discription| truncatewords:20}}</p>
+      <a class="btn btn-primary" href="{{p.link}}">Amazon ${{p.price}}</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<script>
+  var autophagy = {
+  y: [
+    0, 0, 0, 10, 15, 20, 20, 30, 40, 50, 60, 70, 80, 90, 100, 95, 85, 80, 70,
+    60, 50, 40, 30, 20, 10, 0,
+  ],
+
+  x: [
+    0, 5, 10, 18, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 72, 75, 80, 85, 90,
+    95, 100, 105, 110, 115, 120, 125,
+  ],
+
+  type: "scatter",
+  name: "Autophagy",
+};
+
+var autophagyFill = {
+  y: [
+    0, 0, 0, 10, 15, 20, 20, 30, 40, 50, 60, 70, 80, 90, 100, 95, 85, 80, 70,
+    80, 90, 100,
+  ],
+
+  x: [0, 5, 10, 18, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 72],
+
+  type: "scatter",
+  fill: "tozeroy",
+  name: "Increasing Hgh",
+  line:{
+    color:'green'
+  },
+};
+
+
+var autophagyFill2 = {
+  y: [100, 95, 85, 80, 70, 60, 50, 40, 30, 20, 10, 0],
+
+  x: [72, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125],
+
+  type: "scatter",
+  fill: "tozeroy",
+  line:{
+    color:'red'
+  },
+  
+  name: "Declineing Hgh",
+};
+
+  var layout = {
+      title: "{{object.name}}",
+    autosize: true,
+
+    paper_bgcolor: "#7f7f7f",
+
+    plot_bgcolor: "#c7c7c7",
+  };
+
+  var config = { responsive: true };
+  try {
+    Plotly.newPlot("autoChart", [autophagy,autophagyFill,autophagyFill2], layout, config);
+  } catch (error) {
+    console.error(error);
+    // expected output: ReferenceError: nonExistentFunction is not defined
+    // Note - error messages will vary depending on browser
+  }
+</script>
+{% endblock %}

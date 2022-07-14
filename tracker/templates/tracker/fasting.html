@@ -1,0 +1,52 @@
+{% extends "tracker/base.html" %} {% block body %}
+
+<div class="card m-2 bg-secondary" style="">
+  <div class="card-body">
+    <h1 class="card-title text-capitalize">{{ article.title }}</h1>
+        <p class="card-text">{{article.subtitle}}</p>
+
+
+
+<h4 class="card-subtitle text-capitalize">{{ article.subtitle2 }}</h4>
+ <ul>
+  <li>{{article.text1}}</li>
+  <li>{{article.text2}}</li>
+  <li>{{article.text3}}</li>
+  <li>{{article.text5}}</li>
+  <li>{{article.text6}}</li>
+  <li>{{article.text9}}</li>
+  <li>{{article.text10}}</li>
+  <li>{{article.text11}}</li>
+  <li>{{article.text12}}</li>
+</ul> 
+<div id="keytoneChart"></div>
+
+
+
+<h4 class="card-subtitle text-capitalize">{{ article.subtitle3 }}</h4>
+ <ul>
+
+  <li>{{article.text7}}</li>
+  <li>{{article.text8}}</li>
+  
+
+</ul> 
+<p>{{article.text4}}</p>
+  </div>
+</div>
+<div class="row">
+{% for p in Products %}
+<div class="card m-2" style="width: 18rem;">
+  <div class="card-body">
+      <img  class="card-img-top"  src="{{p.image.url}}" alt="">
+    <h5 class="card-title">{{ p.name }}</h5>
+    
+
+    <p class="card-text">{{p.discription| truncatewords:20}}</p>
+    <a class="btn btn-primary" href="{{p.link}}">Amazon ${{p.price}}</a>
+  </div>
+</div>
+{% endfor %}
+</div>
+
+{% endblock %}

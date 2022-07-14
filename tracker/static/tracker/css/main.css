@@ -1,0 +1,28 @@
+h5 {
+    color: black;
+}
+#macroChart{
+
+}
+#foodImage{
+    height: 200px;
+
+
+
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0
+
+}
+#foodCard{
+    width: 18rem;
+
+}
+
+#foodDetailCard {
+    width: 36rem;
+
+}
+#artCard {
+    width: 36rem;
+
+}
