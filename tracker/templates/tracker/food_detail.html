@@ -1,66 +1,61 @@
 {% extends "tracker/base.html" %} {% block body %}
-
-<div class="card m-2 bg-secondary" id="foodDetailCard">
-  <div class="card-body">
-    <h3 class="card-title text-capitalize">{{ object.name }}</h3>
-    <div id="foodDiv" class="row">
-      <div class="col">
+<div class="container mt-5 pt-5">
+  <div class="card m-2 bg-secondary" id="foodDetailCard">
+    <div class="card-body">
+      <div id="foodDiv" class="row">
         <img
-          class="card-img-top mb-2"
-          id="foodImage"
+          class="card-img-top"
+          id="food-detail"
           src="{{object.image.url}}"
           alt=""
         />
+        <h3 class="card-title text-capitalize text-center">
+          {{ object.name }}
+        </h3>
+
+        <div class="col"></div>
       </div>
-      <div class="col">
-      </div>
+      <h5 class="card-subtitle">Benifits:</h5>
+      <ul>
+        <li>
+          <p>{{object.text1}}</p>
+        </li>
+        <li>
+          <p>{{object.text2}}</p>
+        </li>
+        <li>
+          <p>{{object.text3}}</p>
+        </li>
+      </ul>
+      <h5 class="card-subtitle mb-2">Macronutrients:</h5>
+
+      <div id="foodChart"></div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Serving Size</th>
+            <th scope="col">Calories</th>
+            <th scope="col">Fat</th>
+            <th scope="col">Protein</th>
+            <th scope="col">Carbohydrates</th>
+            <th scope="col">Fiber</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{object.servingSize}}</td>
+            <td>{{object.Calories|floatformat:0}}</td>
+            <td>{{object.Fat|floatformat:0}}</td>
+            <td>{{object.Protein|floatformat:0}}</td>
+            <td>{{object.Carbohydrates|floatformat:0}}</td>
+            <td>{{object.Fiber|floatformat:0}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <h5 class="card-subtitle">Benifits:</h5>
-    <ul>
-      <li>
-        <p>{{object.text1}}</p>
-      </li>
-      <li>
-        <p>{{object.text2}}</p>
-      </li>
-      <li>
-        <p>{{object.text3}}</p>
-      </li>
-
-    </ul>
-        <h5 class="card-subtitle mb-2">Macronutrients:</h5>
-
-        <div id="foodChart"></div>
-        <table class="table">
-  <thead>
-        
-
-    <tr>
-      <th scope="col">Serving Size</th>
-      <th scope="col">Calories</th>
-      <th scope="col">Fat</th>
-      <th scope="col">Protein</th>
-      <th scope="col">Carbohydrates</th>
-      <th scope="col">Fiber</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>{{object.servingSize}}</td>  
-      <td>{{object.Calories|floatformat:0}}</td> 
-      <td>{{object.Fat|floatformat:0}}</td>
-      <td>{{object.Protein|floatformat:0}}</td>
-      <td>{{object.Carbohydrates|floatformat:0}}</td>
-      <td>{{object.Fiber|floatformat:0}}</td>
-      
-    </tr>
-    
-  </tbody>
-</table>
-
   </div>
+  <div class="row"></div>
 </div>
-<div class="row"></div>
 <script>
   var data = [
     {

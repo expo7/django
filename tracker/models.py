@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
+from ckeditor.fields import RichTextField
+
 FAT=9
 CARB=4
 PROTEIN=4
@@ -62,7 +64,8 @@ class  Article(models.Model):
     subtitle6 = models.CharField(max_length=300, null=True, blank=True)
     text2=models.TextField(max_length=1000, null=True, blank=True)
     image = models.ImageField()
-    text1=models.TextField(max_length=1000, null=True, blank=True)
+    text1=RichTextField(blank=True,null=True)
+    # text1=models.TextField(max_length=1000, null=True, blank=True)
     text2=models.TextField(max_length=1000, null=True, blank=True)
     text3=models.TextField(max_length=1000, null=True, blank=True)
     text4=models.TextField(max_length=1000, null=True, blank=True)

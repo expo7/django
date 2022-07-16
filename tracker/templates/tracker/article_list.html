@@ -1,15 +1,32 @@
-{% extends "tracker/base.html" %}
-{% block body %}
+{% extends "tracker/base.html" %} {% load static %}{% block body %}
+<div class="container mt-5 pt-5">
+  <div
+    id="carouselExampleSlidesOnly"
+    class="carousel slide mt-3"
+    data-ride="carousel"
+  >
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100 rounded" src="{% static 'bannor.png' %}" />
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="..." alt="Second slide" />
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="..." alt="Third slide" />
+      </div>
+    </div>
+  </div>
+</div>
 {% for article in object_list%}
 <div class="card m-2 bg-secondary">
   <div class="card-body">
     <h5 class="card-title text-capitalize">{{ article.title }}</h5>
     <p class="card-text">{{article.subtitle}}</p>
-  
 
-    <a href="{% url 'article-detail' article.slug %}" class="btn btn-primary">Learn more</a>
-
+    <a href="{% url 'article-detail' article.slug %}" class="btn btn-primary"
+      >Learn more</a
+    >
   </div>
 </div>
-{% endfor %}
-{% endblock body %}
+{% endfor %} {% endblock body %}

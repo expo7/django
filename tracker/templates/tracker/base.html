@@ -1,5 +1,4 @@
-{% load static %}
-{% load humanize %}
+{% load static %} {% load humanize %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -43,13 +42,23 @@
       href="{% static 'tracker/css/main.css' %}"
     />
   </head>
-  <body>
+  <body class="">
     <main>
       <nav
-        class="navbar fixed-top navbar-expand navbar-dark bg-dark mb-5"
+        class="navbar fixed-top navbar-expand navbar-dark bg-secondary mb-5"
         aria-label="Second navbar example"
       >
         <div class="container-fluid">
+          <nav class="navbar">
+            <a class="navbar-brand" href="{% url 'home' %}">
+              <img
+                class="rounded"
+                src="{% static 'logo.png' %}"
+                width="50"
+                height="50"
+              />
+            </a>
+          </nav>
           <a class="navbar-brand" href="{% url 'home' %}">KotoHeath</a>
           <button
             class="navbar-toggler"
@@ -84,16 +93,18 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'product-list' %}">Products</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'post-list' %}">Wiki</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'post-create' %}">Add Wiki</a>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
-      <div id="xxx" class="container mt-5 pt-3">
-        
-        {% block body %}{% endblock body %}
-      </div>
+      <div id="xxx" class="">{% block body %}{% endblock body %}</div>
     </main>
     <script src="{% static 'tracker/js/index.js' %}"></script>
-      
   </body>
 </html>

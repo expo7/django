@@ -1,50 +1,51 @@
 {% extends "tracker/base.html" %} {% block body %}
-
-<div class="card m-2 bg-secondary" id="foodDetailCard">
-  <div class="card-body">
-    <h3 class="card-title text-capitalize">{{ article.title }}</h3>
-    <p class="card-text">{{article.subtitle}}</p>
-    <ol>
-      <li>
-        <p>{{article.text1}}</p>
-      </li>
-      <li>
-        <p>{{article.text2}}</p>
-      </li>
-      <li>
-        <p>{{article.text3}}</p>
-      </li>
-      <li>
-        <p>{{article.text4}}</p>
-      </li>
-
-    </ol>
-    <b class="text-capitalize">what to avoid</b>
-    <ul>
-      <li>
-        <p>{{article.text5}}</p>
-      </li>
-
-      <li>
-        <p>{{article.text6}}</p>
-      </li>
-    </ul>
-    <p class="card-text">{{article.text7}}</p>
-  </div>
-</div>
+<div class="mt-5 pt-5"></div>
 <div class="row">
-{% for p in Products %}
-<div class="card m-2" style="width: 18rem;">
-  <div class="card-body">
-      <img  class="card-img-top"  src="{{p.image.url}}" alt="">
-    <h5 class="card-title">{{ p.name }}</h5>
-    
+  <div class="col">
+    <div class="card m-2 bg-secondary mt-5 pt-5" id="foodDetailCard">
+      <div class="card-body">
+        <h3 class="card-title text-capitalize">{{ article.title }}</h3>
+        <p class="card-text">{{article.subtitle}}</p>
+        <ol>
+          <li>
+            <p>{{article.text1}}</p>
+          </li>
+          <li>
+            <p>{{article.text2}}</p>
+          </li>
+          <li>
+            <p>{{article.text3}}</p>
+          </li>
+          <li>
+            <p>{{article.text4}}</p>
+          </li>
+        </ol>
+        <b class="text-capitalize">what to avoid</b>
+        <ul>
+          <li>
+            <p>{{article.text5}}</p>
+          </li>
 
-    <p class="card-text">{{p.discription| truncatewords:20}}</p>
-    <a class="btn btn-primary" href="{{p.link}}">Amazon ${{p.price}}</a>
+          <li>
+            <p>{{article.text6}}</p>
+          </li>
+        </ul>
+        <p class="card-text">{{article.text7}}</p>
+      </div>
+    </div>
   </div>
-</div>
-{% endfor %}
-</div>
+  <div class="col">
+    {% for p in Products %}
+    <div class="card m-2" style="width: 18rem">
+      <div class="card-body">
+        <img class="card-img-top" src="{{p.image.url}}" alt="" />
+        <h5 class="card-title">{{ p.name }}</h5>
 
+        <p class="card-text">{{p.discription| truncatewords:20}}</p>
+        <a class="btn btn-primary" href="{{p.link}}">Amazon ${{p.price}}</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}

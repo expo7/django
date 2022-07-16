@@ -1,0 +1,7 @@
+{% extends "tracker/base.html" %} {% block body %}
+<div class="mt-5 pt-5"></div>
+<article>
+  <h1>{{post.title}}</h1>
+  <div>{{post.content|safe}}</div>
+</article>
+{% endblock %}

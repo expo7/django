@@ -1,0 +1,25 @@
+{% extends "tracker/base.html" %} {% block body %}
+<div class="container mt-5 pt-5">
+  <div class="row">
+    {% for object in object_list%}
+    <article class="border">
+      <div class="row">
+        <div class="col-10">
+          <a href="{% url 'post-detail' object.slug %}"
+            ><h3>{{object.title}}</h3></a
+          >
+        </div>
+        <div class="col">
+          <a
+            class="btn btn-success btn-sm mt-1 mb-1"
+            href="{% url 'post-update' object.id %}"
+            >Update</a
+          >
+        </div>
+      </div>
+
+      <p>{{object.content|safe}}</p>
+    </article>
+    {%endfor%} {% endblock body %}
+  </div>
+</div>

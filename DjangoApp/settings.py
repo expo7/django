@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'tracker',
     'django.contrib.humanize',
-    
+    'ckeditor',
+    'wiki',
+    'users',
     'crispy_forms',
     'django_extensions',
     'django.contrib.contenttypes',

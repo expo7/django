@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Article,Product,Food
 from django.utils import timezone
-from django.views.generic import DetailView,ListView
+from django.views.generic import DetailView,ListView,UpdateView
 
 class FoodDetailView(DetailView):
 

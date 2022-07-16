@@ -1,6 +1,9 @@
 h5 {
     color: black;
 }
+body {
+    background-color: aqua;
+}
 #macroChart{
 
 }
@@ -19,10 +22,27 @@ h5 {
 }
 
 #foodDetailCard {
-    width: 36rem;
+    /* width: 25rem; */
 
 }
 #artCard {
     width: 36rem;
 
 }
+#food-detail {
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    height: 40%;
+    
+
+}
+article {
+    display: block;
+    background-color: blanchedalmond;
+    border: 4px solid black;
+    margin: 20px;
+    padding: 5px;
+  }
